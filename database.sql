@@ -26,7 +26,7 @@ DELIMITER ;
 DELIMITER //
 
 CREATE PROCEDURE buscar_usuario_por_email (
-    IN p_email VARCHAR(100)
+    IN p_email VARCHAR(300)
 )
 BEGIN
     SELECT * FROM USUARIO
