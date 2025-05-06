@@ -7,4 +7,32 @@ CREATE TABLE USUARIO (
     NOME VARCHAR(30) NOT NULL UNIQUE,
     SENHA VARCHAR(255) NOT NULL,
     EMAIL VARCHAR(300) NOT NULL UNIQUE
-);
+)
+
+DELIMITER //
+
+CREATE PROCEDURE criar_usuario (
+    IN p_nome VARCHAR(30),
+    IN p_email VARCHAR(300),
+    IN p_senha VARCHAR(255)
+)
+BEGIN
+    INSERT INTO USUARIO (NOME, EMAIL, SENHA)
+    VALUES (p_nome, p_email, p_senha);
+END //
+
+DELIMITER ;
+
+DELIMITER //
+
+CREATE PROCEDURE buscar_usuario_por_email (
+    IN p_email VARCHAR(300)
+)
+BEGIN
+    SELECT * FROM USUARIO
+    WHERE EMAIL = p_email
+    LIMIT 1;
+END //
+
+DELIMITER ;
+
