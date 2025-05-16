@@ -179,7 +179,8 @@ DELIMITER //
  
 CREATE PROCEDURE editar_questao_por_id(
     IN p_id INT,
-    IN p_enunciado VARCHAR(1000)
+    IN p_enunciado VARCHAR(1000),
+    IN p_dificuldade TINYINT
 )
 BEGIN
     UPDATE QUESTAO
